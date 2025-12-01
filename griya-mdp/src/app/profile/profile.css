@@ -1,0 +1,36 @@
+
+.profile-section {
+    background-color: #1a1a1a !important;
+    min-height: 100vh;
+}
+
+.nav-tabs-custom {
+    border-bottom: 2px solid #343a40;
+}
+.nav-tabs-custom .nav-link {
+    color: #b0b0b0;
+    border: none;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+.nav-tabs-custom .nav-link:hover {
+    color: #ffc107;
+}
+.nav-tabs-custom .nav-link.active {
+    color: #ffc107;
+    border-color: #ffc107;
+    background-color: #212529 !important;
+    font-weight: bold;
+}
+
+.card-add-new {
+    background-color: #212529 !important;
+    border: 2px dashed #343a40 !important;
+    transition: all 0.3s ease;
+}
+.card-add-new:hover {
+    background-color: #2c3136 !important;
+    border-color: #ffc107 !important;
+    cursor: pointer;
+}

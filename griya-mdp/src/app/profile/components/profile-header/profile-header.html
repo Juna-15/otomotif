@@ -1,0 +1,40 @@
+<div class="card shadow-lg border-0 mb-4 bg-dark text-white border border-secondary">
+  <div class="card-body p-0">
+    <div class="profile-header px-4 py-4">
+      <div class="row align-items-end">
+        <div class="col-lg-3 text-center text-lg-start">
+          <div class="position-relative">
+            <img [src]="user.avatar" 
+                 [alt]="user.name" 
+                 class="rounded-circle border border-5 border-warning shadow" style="width: 150px; height: 150px;">
+          </div>
+        </div>
+        
+        <div class="col-lg-6 mt-3 mt-lg-0">
+          <h2 class="mb-1 fw-bold text-warning">{{ user.name }}</h2>
+          <p class="text-white-50 mb-2">
+            <i class="bi bi-envelope-fill me-2 text-primary"></i>{{ user.email }}
+          </p>
+          <p class="text-white-50 mb-2">
+            <i class="bi bi-telephone-fill me-2 text-primary"></i>{{ user.phone }}
+          </p>
+          <p class="text-white-50 mb-0">
+            <i class="bi bi-geo-alt-fill me-2 text-danger"></i>{{ user.location }}
+          </p>
+          <div class="mt-2">
+            <span class="badge bg-warning text-dark me-2" *ngIf="user.isPremium">Premium Member</span> <span class="badge bg-success" *ngIf="user.isVerified">Verified</span>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 text-center text-lg-end mt-3 mt-lg-0">
+          <button class="btn btn-warning fw-bold text-dark mb-2 w-100 w-lg-auto" (click)="onEdit()">
+            <i class="bi bi-pencil-fill me-2"></i>Edit Profile
+          </button>
+          <button class="btn btn-outline-secondary text-white w-100 w-lg-auto" (click)="onSettings()">
+            <i class="bi bi-gear-fill me-2"></i>Settings
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

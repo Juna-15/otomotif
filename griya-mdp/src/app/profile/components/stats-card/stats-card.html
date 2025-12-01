@@ -1,0 +1,35 @@
+<div class="card shadow-lg border-0 mb-4 bg-dark text-white border border-secondary">
+  <div class="card-header bg-dark border-secondary py-3">
+    <h5 class="mb-0 fw-bold">
+      <i class="bi bi-bar-chart-fill text-warning me-2"></i>Statistik
+    </h5>
+  </div>
+  <div class="card-body">
+    <div class="d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom border-secondary">
+      <div>
+        <i class="bi bi-car-front-fill text-warning fs-4 me-2"></i> <span class="text-white-50">Mobil Dijual</span>
+      </div>
+      <h4 class="mb-0 fw-bold text-warning">{{ stats.properties }}</h4>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom border-secondary">
+      <div>
+        <i class="bi bi-heart-fill text-danger fs-4 me-2"></i>
+        <span class="text-white-50">Favorit</span>
+      </div>
+      <h4 class="mb-0 fw-bold text-danger">{{ stats.favorites }}</h4>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom border-secondary">
+      <div>
+        <i class="bi bi-star-fill text-success fs-4 me-2"></i> <span class="text-white-50">Rating</span>
+      </div>
+      <h4 class="mb-0 fw-bold text-success">{{ stats.rating }}</h4>
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <i class="bi bi-clock-history text-info fs-4 me-2"></i>
+        <span class="text-white-50">Member Sejak</span>
+      </div>
+      <h6 class="mb-0 fw-bold text-info">{{ stats.memberSince }}</h6>
+    </div>
+  </div>
+</div>

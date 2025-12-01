@@ -1,0 +1,117 @@
+<div class="container py-5 bg-dark text-white" *ngIf="isLoading">
+  <div class="text-center">
+    <div class="spinner-border text-warning" role="status" style="width: 3rem; height: 3rem;">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="text-white-50 mt-3">Memuat detail mobil...</p>
+  </div>
+</div>
+
+<div class="container pt-4 bg-dark text-white" *ngIf="!isLoading && errorMessage">
+  <button class="btn btn-warning fw-bold text-dark mb-3" (click)="goBack()">
+    <i class="bi bi-arrow-left me-2"></i>Kembali ke Home
+  </button>
+  
+  <div class="alert alert-danger" role="alert">
+    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+    {{ errorMessage }}
+  </div>
+</div>
+
+<div class="container pb-5 bg-dark text-white" *ngIf="!isLoading && housing">
+    <nav aria-label="breadcrumb" class="pt-2">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a routerLink="/" class="text-decoration-none text-warning">Home</a>
+            </li>
+            <li class="breadcrumb-item active text-white" aria-current="page">
+                {{ housing.title }}
+            </li>
+        </ol>
+    </nav>
+
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="display-5 fw-bold text-white mb-2">{{ housing.title }}</h1>
+            <p class="lead text-warning fw-bolder mb-0">{{ formatPrice(housing.price) }}</p>
+            <p class="text-white-50">
+                <i class="bi bi-geo-alt-fill text-danger me-2"></i>{{ housing.location }}
+            </p>
+        </div>
+        <div class="col-12">
+            <div class="card shadow-lg mb-4 bg-secondary bg-opacity-25 border-dark product-image-wrapper">
+                <img [src]="housing.image" 
+                    [alt]="housing.title" 
+                    class="card-img-top detail-product-image">
+                <span class="badge status-badge-detail" [ngClass]="getStatusClass(housing.status)">
+                    {{ housing.status }}
+                </span>
+                <span class="badge type-badge-detail" [ngClass]="getTypeClass(housing.type || '')">
+                    {{ housing.type | titlecase }}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-5 specs-highlights-row">
+        
+        <div class="col-md-4">
+            <div class="card bg-dark text-center border-secondary border-start border-3 h-100 p-3">
+                <i class="bi bi-speedometer2 text-warning fs-1 mb-2"></i>
+                <h3 class="fw-bold text-white">{{ housing.engineSize }} cc</h3>
+                <p class="text-white-50 mb-0">Ukuran Mesin</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card bg-dark text-center border-secondary border-start border-3 h-100 p-3">
+                <i class="bi bi-lightning-charge-fill text-danger fs-1 mb-2"></i>
+                <h3 class="fw-bold text-white">{{ housing.horsepower }} HP</h3>
+                <p class="text-white-50 mb-0">Tenaga Maksimal</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card bg-dark text-center border-secondary border-start border-3 h-100 p-3">
+                <i class="bi bi-fuel-pump-fill text-info fs-1 mb-2"></i>
+                <h3 class="fw-bold text-white">{{ housing.mileage | number }} km</h3>
+                <p class="text-white-50 mb-0">Jarak Tempuh</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        
+        <div class="col-lg-8">
+            <div class="card shadow-lg bg-dark text-white border border-secondary p-4">
+                <h3 class="card-title mb-3 fw-bold text-warning">
+                    <i class="bi bi-file-text me-2"></i>Deskripsi Mobil
+                </h3>
+                <p class="card-text text-white-50 detail-description">{{ housing.description }}</p>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card shadow-lg bg-dark text-white border border-secondary p-4">
+                <h5 class="mb-3 fw-bold text-warning">Aksi Cepat</h5>
+                <div class="d-grid gap-3 mb-4">
+                    <button class="btn btn-warning btn-lg fw-bold text-dark py-3">
+                        <i class="bi bi-calendar-check me-2"></i>Jadwalkan Test Drive
+                    </button>
+                    <button class="btn btn-outline-warning text-white btn-lg py-3">
+                        <i class="bi bi-telephone me-2"></i>Hubungi Sales
+                    </button>
+                    <button class="btn btn-outline-secondary text-white py-3">
+                        <i class="bi bi-heart me-2"></i>Simpan ke Favorit
+                    </button>
+                </div>
+                <hr class="border-secondary">
+                <div class="text-center">
+                    <p class="text-white-50 mb-1 small">Diposting {{ housing.postedDays }} hari lalu</p>
+                    <h4 class="text-success fw-bold">{{ housing.rating }}/5 Rating</h4>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

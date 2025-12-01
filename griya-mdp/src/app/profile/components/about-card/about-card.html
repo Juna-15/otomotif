@@ -1,0 +1,24 @@
+<div class="card shadow-lg border-0 mb-4 bg-dark text-white border border-secondary">
+  <div class="card-header bg-dark border-secondary py-3">
+    <h5 class="mb-0 fw-bold">
+      <i class="bi bi-person-fill text-warning me-2"></i>Tentang Saya
+    </h5>
+  </div>
+  <div class="card-body">
+    <p class="text-white-50 mb-3" *ngIf="user.bio">
+      {{ user.bio }}
+    </p>
+    <div class="mb-2" *ngIf="user.job">
+      <i class="bi bi-briefcase-fill text-warning me-2"></i>
+      <strong class="text-white">Pekerjaan:</strong> <span class="text-white-50">{{ user.job }}</span>
+    </div>
+    <div class="mb-2" *ngIf="user.birthdate">
+      <i class="bi bi-cake-fill text-warning me-2"></i>
+      <strong class="text-white">Tanggal Lahir:</strong> <span class="text-white-50">{{ user.birthdate }}</span>
+    </div>
+    <div *ngIf="user.status">
+      <i class="bi bi-people-fill text-warning me-2"></i>
+      <strong class="text-white">Status:</strong> <span class="text-white-50">{{ user.status }}</span>
+    </div>
+  </div>
+</div>
