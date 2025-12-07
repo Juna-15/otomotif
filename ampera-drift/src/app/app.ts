@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('griya-mdp');
+  protected readonly title = signal('ampera-drift');
 
   constructor(public authService: AuthService, private router: Router) {}
 
